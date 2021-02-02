@@ -7,6 +7,7 @@ import { Count, CountMemoized } from "./Count"
 
 function App() {
   const [text, setText] = React.useState("");
+  const [text2, setText2] = React.useState("");
 
   // const onEven = React.useCallback( () => setDataEven(true)  )
   function onEven() { setDataEven(true) }
@@ -14,16 +15,24 @@ function App() {
   // const resetTextCallback = React.useCallback( () => setText("") );
   const resetTextCallback = () => { setText("") }
   
-  const data = { isEven: false};
+  // const data = { isEven: false };
+  
+  const data = React.useMemo(
+   () => ({
+      text2,
+      isEvenText2: text2.length % 2 === 0
+   }),
+   [text2] 
+  )
 
   function setDataEven(value) {
     data.isEven = value
-    console.log("setDataEven=", data.isEven)
   }
 
   return (
     <div className="App">
       <input value = {text} onChange={e => setText(e.target.value)} />
+      <input value = {text2} onChange={e => setText2(e.target.value)} placeholder="text2"/>
       <Count onEven={onEven} onOdd={onOdd} setText={setText} resetTextCallback={resetTextCallback} data={data} />
 
     </div>

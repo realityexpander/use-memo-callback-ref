@@ -19,11 +19,11 @@ export const Count = React.memo(( { onEven, onOdd, setText, resetTextCallback, .
           setCount(c => {
             c = c + 1
             if ( c % 2 === 0) {
-              onEven()  // clear text only when count is even
-              // props.data.isEven = true
+              // onEven()  // clear text only when count is even
+              props.data.isEven = true
             } else {
-              onOdd()
-              // props.data.isEven = false
+              // onOdd()
+              props.data.isEven = false
             }
             return c
           })

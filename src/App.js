@@ -5,6 +5,10 @@ import { Count, CountMemoized } from "./Count"
 // How to use memo in React to Optimize Renders
 // https://www.youtube.com/watch?v=o-alRbk_zP0
 
+
+// Warnings for some updates during render
+// https://reactjs.org/blog/2020/02/26/react-v16.13.0.html#new-warnings
+
 function App() {
   const [text, setText] = React.useState("");
   const [text2, setText2] = React.useState("");
